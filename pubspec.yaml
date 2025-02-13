@@ -1,0 +1,52 @@
+name: kamis_praktikum
+description: "Kamis Praktikum."
+
+# Prevent accidental publishing to pub.dev
+publish_to: "none"
+
+# Application version
+version: 1.0.0+1
+
+# Environment setup
+environment:
+  sdk: ">=3.6.0 <4.0.0"
+
+# Dependencies
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Cupertino icons for iOS-styled icons
+  cupertino_icons: ^1.0.8
+
+  # Flutter Native Splash for splash screen creation
+  flutter_native_splash: ^2.4.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Recommended lints for better coding practices
+  flutter_lints: ^5.0.0
+
+# Flutter-specific configurations
+flutter:
+  uses-material-design: true
+
+  # Adding image assets
+  assets:
+    - assets/images/rubik.png
+    - assets/images/git.png
+    - assets/images/graduation-cap.png
+    - assets/images/instagram.png
+    - assets/images/user.png
+    - assets/images/profile.png
+    - assets/images/linkedin.png
+
+# Configuration for flutter_native_splash
+flutter_native_splash:
+  color: "#ffffff" # Background color for the splash screen
+  image: assets/images/rubik.png # Path to the splash screen image
+  android: true # Enable for Android
+  ios: true # Enable for iOS
+  web: true # Enable for Web

@@ -7,39 +7,6 @@ import '../pages/social.dart';
 class SideDrawer extends StatelessWidget {
   const SideDrawer({super.key});
 
-  void _onItemTapped(BuildContext context, int index) {
-    // Close the drawer before navigating
-    Navigator.pop(context);
-
-    // Navigate to the corresponding page
-    switch (index) {
-      case 0:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const Profile()),
-        );
-        break;
-      case 1:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const Gallery()),
-        );
-        break;
-      case 2:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const Contact()),
-        );
-        break;
-      case 3:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const Social()),
-        );
-        break;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -48,7 +15,7 @@ class SideDrawer extends StatelessWidget {
         children: [
           // Drawer Header
           DrawerHeader(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.redAccent,
             ),
             child: const Text(
@@ -64,28 +31,68 @@ class SideDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.person),
             title: const Text('Profile'),
-            onTap: () => _onItemTapped(context, 0),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (context, animation1, animation2) =>
+                      const Profile(),
+                  transitionDuration: Duration.zero,
+                  reverseTransitionDuration: Duration.zero,
+                ),
+              );
+            },
           ),
 
           // Gallery Menu Item
           ListTile(
             leading: const Icon(Icons.photo_album),
             title: const Text('Gallery'),
-            onTap: () => _onItemTapped(context, 1),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (context, animation1, animation2) =>
+                      const Gallery(),
+                  transitionDuration: Duration.zero,
+                  reverseTransitionDuration: Duration.zero,
+                ),
+              );
+            },
           ),
 
           // Contact Menu Item
           ListTile(
             leading: const Icon(Icons.mail),
             title: const Text('Contact'),
-            onTap: () => _onItemTapped(context, 2),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (context, animation1, animation2) =>
+                      const Contact(),
+                  transitionDuration: Duration.zero,
+                  reverseTransitionDuration: Duration.zero,
+                ),
+              );
+            },
           ),
 
           // Social Menu Item
           ListTile(
             leading: const Icon(Icons.connect_without_contact),
             title: const Text('Social'),
-            onTap: () => _onItemTapped(context, 3),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (context, animation1, animation2) =>
+                      const Social(),
+                  transitionDuration: Duration.zero,
+                  reverseTransitionDuration: Duration.zero,
+                ),
+              );
+            },
           ),
         ],
       ),
